@@ -1,10 +1,11 @@
 name: Main Branch CI
 
 on:
-  workflow_run:
-    workflows: [All Branches CI]
-    types:
-      - completed
+# https://docs.github.com/es/actions/using-workflows/events-that-trigger-workflows#workflow_run
+#  workflow_run:
+#    workflows: [All Branches CI]
+#    types:
+#      - completed
   push:
     branches: [ "main" ]
   pull_request:
