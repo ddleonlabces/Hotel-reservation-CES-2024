@@ -1,0 +1,17 @@
+name: Main Branch CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Acceptance testing
+      uses: echo "acceptance testing"
+      
+	  # - name: Build with Maven
+	  #  run: mvn -B package --file pom.xml
