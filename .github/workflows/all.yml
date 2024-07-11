@@ -21,10 +21,10 @@ jobs:
         ls -la
     
     - name: Upload compiled
-        uses: actions/upload-artifact@v3
-        with:
-          name: compiled
-          path: compiled.txt
+      uses: actions/upload-artifact@v3
+      with:
+        name: compiled
+        path: compiled.txt
 
   accept:
     name: Acceptance testing
