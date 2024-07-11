@@ -31,7 +31,7 @@ jobs:
 
     steps:
     - name: Include only main branch
-      if: ${{ github.ref == 'refs/heads/main' }}
+      if: ${{ github.ref == 'refs/heads/master' }}
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
   #build:
   #  uses: ./.github/workflows/common.yml
