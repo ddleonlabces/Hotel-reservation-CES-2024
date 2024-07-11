@@ -27,6 +27,11 @@ jobs:
     - name: Dependency check
       run: echo "testing"
 
+    - name: Build binary
+      run: echo "Hola mundo" > compiled.txt
+    - name: List
+      run: ls la
+
   accept:
     name: Acceptance testing
     needs: build
@@ -36,6 +41,9 @@ jobs:
     steps:
     - name: Acceptance testing
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
+
+    - name: List
+      run: ls la
 
     # - name: Build with Maven
     #  run: mvn -B package --file pom.xml
