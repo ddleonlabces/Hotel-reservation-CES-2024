@@ -26,7 +26,11 @@ jobs:
     - name: Dependency check
       run: echo "testing"
 
+  accept:
+    runs-on: ubuntu-latest
+
     - name: Include only main branch
+      if: ${{ github.ref == 'refs/heads/main' }}
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
   #build:
   #  uses: ./.github/workflows/common.yml
