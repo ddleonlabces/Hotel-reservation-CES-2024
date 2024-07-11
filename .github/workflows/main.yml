@@ -17,11 +17,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Acceptance testing
-      run: date "+%Y-%m-%d %H:%M:%S.%3N"
+    - uses: actions/checkout@v4
 
     - name: Use commoun
       uses: ./.github/workflows/common.yml
+
+    - name: Acceptance testing
+      run: date "+%Y-%m-%d %H:%M:%S.%3N"
+
 
 # - name: Build with Maven
 #  run: mvn -B package --file pom.xml
