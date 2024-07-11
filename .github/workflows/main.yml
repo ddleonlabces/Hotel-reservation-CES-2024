@@ -21,7 +21,7 @@ jobs:
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
 
     - name: Use commoun
-      run: echo "testing"
+      uses: ./.github/workflows/common.yml
 
 # - name: Build with Maven
 #  run: mvn -B package --file pom.xml
