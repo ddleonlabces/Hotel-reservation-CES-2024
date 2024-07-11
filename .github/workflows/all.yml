@@ -27,11 +27,11 @@ jobs:
       run: echo "testing"
 
   accept:
+    if: ${{ github.ref == 'refs/heads/master' }}
     runs-on: ubuntu-latest
 
     steps:
     - name: Include only main branch
-      if: ${{ github.ref == 'refs/heads/master' }}
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
   #build:
   #  uses: ./.github/workflows/common.yml
