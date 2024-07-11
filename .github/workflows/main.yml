@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Use commoun
-      run: ls 
+      run: ls -la
       # uses: ./.github/workflows/common.yml
 
     - name: Acceptance testing
