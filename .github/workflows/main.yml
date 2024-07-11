@@ -19,7 +19,9 @@ jobs:
     steps:
     - name: Acceptance testing
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
-      # run: echo "testing"
+
+    - name: Use commoun
+      run: echo "testing"
 
 # - name: Build with Maven
 #  run: mvn -B package --file pom.xml
