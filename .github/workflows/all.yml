@@ -1,0 +1,24 @@
+name: All Branches CI
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: SonarQube
+      run: echo "SonarQube"
+
+    - name: Unit testing
+      run: echo "Unit testing"
+
+    - name: Integration testing
+      run: echo "Integration testing"
+
+    - name: Jacoco
+      run: echo "Jacoco"
+
+    - name: Dependency check
+      run: echo "testing"
