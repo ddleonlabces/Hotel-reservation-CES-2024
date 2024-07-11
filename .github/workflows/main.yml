@@ -7,10 +7,10 @@ on:
     branches: [ "main" ]
 # https://docs.github.com/es/actions/using-workflows/events-that-trigger-workflows#workflow_run
 # https://stackoverflow.com/questions/63343937/how-to-use-the-github-actions-workflow-run-event
-  workflow_run:
-    workflows: [All Branches CI]
-    types:
-      - completed
+#  workflow_run:
+#    workflows: [All Branches CI]
+#    types:
+#      - completed
 
 jobs:
   build:
