@@ -29,6 +29,7 @@ jobs:
   accept:
     runs-on: ubuntu-latest
 
+    steps:
     - name: Include only main branch
       if: ${{ github.ref == 'refs/heads/main' }}
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
