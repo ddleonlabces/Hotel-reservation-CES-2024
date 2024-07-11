@@ -2,6 +2,9 @@ name: All Branches CI
 
 on:
   push:
+    branches:
+      - '*'
+      - '!main'
 
 jobs:
   build:
