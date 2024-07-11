@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
@@ -23,6 +24,7 @@ import henry.hotel.services.ReservationServiceImpl;
 import henry.hotel.services.UserService;
 import henry.hotel.temp.CurrentReservation;
 
+@Tag("UnitTests")
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class ReservationServiceUnitTests {

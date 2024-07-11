@@ -2,6 +2,7 @@ package henry.hotel;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import henry.hotel.controller.HotelReservationController;
 
+@Tag("IntegrationTests")
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class HotelReservationControllerIntegrationTests {
