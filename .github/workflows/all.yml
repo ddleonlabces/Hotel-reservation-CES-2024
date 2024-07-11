@@ -13,25 +13,18 @@ jobs:
 
     steps:
     - name: SonarQube
-      run: echo "SonarQube"
-
-    - name: Unit testing
-      run: echo "Unit testing"
-
-    - name: Integration testing
-      run: echo "Integration testing"
-
-    - name: Jacoco
-      run: echo "Jacoco"
-
-    - name: Dependency check
-      run: echo "testing"
+      run: echo "mvn verify"
 
     - name: Build binary
-      run: echo "Hola mundo" > compiled.txt
-
-    - name: List
-      run: ls -la
+      run: |
+        echo "Hola mundo" > compiled.txt
+        ls -la
+    
+    - name: Upload compiled
+        uses: actions/upload-artifact@v3
+        with:
+          name: compiled
+          path: compiled.txt
 
   accept:
     name: Acceptance testing
@@ -40,6 +33,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Download compiled
+      uses: actions/download-artifact@v3
+      with:
+        name: compiled
+
     - name: Acceptance testing
       run: date "+%Y-%m-%d %H:%M:%S.%3N"
 
