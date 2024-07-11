@@ -2,16 +2,14 @@ name: Main Branch CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Acceptance testing
-      run: ls
-      
-	  # - name: Build with Maven
-	  #  run: mvn -B package --file pom.xml
+      run: echo "testing"
