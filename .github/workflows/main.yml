@@ -13,3 +13,6 @@ jobs:
     steps:
     - name: Acceptance testing
       run: echo "testing"
+
+# - name: Build with Maven
+#  run: mvn -B package --file pom.xml
