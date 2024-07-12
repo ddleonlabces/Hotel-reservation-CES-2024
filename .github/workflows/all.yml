@@ -36,7 +36,7 @@ jobs:
     name: Acceptance testing
     needs: build
     # https://docs.github.com/es/actions/learn-github-actions/contexts#github-context
-    # if: ${{ github.base_ref == 'main' }}
+    if: ${{ github.base_ref == 'main' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -55,7 +55,8 @@ jobs:
 
     - name: Acceptance testing
       # run: mvn test -DincludedGroups=AcceptanceTests -DexcludedGroups="UnitTests,IntegrationTests"
-      run: echo "mvn test"
+      # run: echo "mvn test"
+      run: echo "${{ github.base_ref }}"
 
     # - name: Build with Maven
     #  run: mvn -B package --file pom.xml
