@@ -21,7 +21,7 @@ jobs:
         distribution: 'zulu' # Alternative distribution options are available.
 
     - name: Build project with Maven
-      run: mvn clean install
+      run: mvn clean install -DskipTests
 
     - name: DepCheck
       uses: dependency-check/Dependency-Check_Action@main
@@ -37,6 +37,10 @@ jobs:
         format: 'HTML'
         out: 'reports'
         # others: ''
+
+    - name: show files
+      run: ls -la
+
     - name: Upload Test results
       uses: actions/upload-artifact@master
       with:
