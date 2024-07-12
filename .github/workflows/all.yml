@@ -38,7 +38,7 @@ jobs:
     name: Acceptance testing
     needs: build
     # https://docs.github.com/es/actions/learn-github-actions/contexts#github-context
-    if: ${{ github.base_ref == 'main' }}
+    if: ${{ github.base_ref == 'main' || github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
     steps:
