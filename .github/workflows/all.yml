@@ -25,7 +25,8 @@ jobs:
       # run: mvn verify -DincludedGroups="UnitTests,IntegrationTests" -DexcludedGroups=AcceptanceTests
       # run: echo "mvn verify"
       # run: echo "$GITHUB_BASE_REF"
-      run: echo "${{ github.base_ref }}"
+      # run: echo "${{ github.base_ref }}"
+      run: env
     
     #- name: Upload compiled
     #  uses: actions/upload-artifact@v3
