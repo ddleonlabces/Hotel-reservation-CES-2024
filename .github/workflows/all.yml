@@ -24,7 +24,8 @@ jobs:
     - name: SonarQube
       # run: mvn verify -DincludedGroups="UnitTests,IntegrationTests" -DexcludedGroups=AcceptanceTests
       # run: echo "mvn verify"
-      run: echo "$GITHUB_BASE_REF"
+      # run: echo "$GITHUB_BASE_REF"
+      run: echo "${{ github.base_ref }}"
     
     #- name: Upload compiled
     #  uses: actions/upload-artifact@v3
@@ -55,8 +56,8 @@ jobs:
 
     - name: Acceptance testing
       # run: mvn test -DincludedGroups=AcceptanceTests -DexcludedGroups="UnitTests,IntegrationTests"
-      # run: echo "mvn test"
-      run: echo "${{ github.base_ref }}"
+      run: echo "mvn test"
+
 
     # - name: Build with Maven
     #  run: mvn -B package --file pom.xml
