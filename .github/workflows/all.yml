@@ -29,11 +29,14 @@ jobs:
         JAVA_HOME: /opt/jdk
       id: DepCheck
       with:
+        # https://github.com/marketplace/actions/dependency-check
+        # https://jeremylong.github.io/DependencyCheck/dependency-check-cli/arguments.html
         # artifactId
         project: 'Hotel-Reservation-Postgres'
         path: '.'
         format: 'HTML'
-        others: ''
+        out: 'reports'
+        # others: ''
     - name: Upload Test results
       uses: actions/upload-artifact@master
       with:
