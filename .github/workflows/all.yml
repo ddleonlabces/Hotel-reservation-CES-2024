@@ -39,13 +39,13 @@ jobs:
         # others: ''
 
     - name: show files
-      run: ls -la
+      run: ls -la ./reports
 
     - name: Upload Test results
       uses: actions/upload-artifact@master
       with:
         name: Depcheck report
-        path: ${{github.workspace}}/report
+        path: ${{github.workspace}}/reports
 
   build:
     name: Build and verify application
