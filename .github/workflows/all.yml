@@ -38,6 +38,8 @@ jobs:
     name: Acceptance testing
     needs: build
     # https://docs.github.com/es/actions/learn-github-actions/contexts#github-context
+    # github.base_ref = rama destino de la solicitud de incorporación de cambios
+    # github.ref = rama o etiqueta que desencadenó la ejecución del flujo
     if: ${{ github.base_ref == 'main' || github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
