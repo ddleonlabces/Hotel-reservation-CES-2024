@@ -78,8 +78,18 @@ jobs:
     #    path: compiled.txt
     - name: listado
       run: ls -la
-
+      
+    - name: Upload Unit and Integration tests results
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck report
+        path: ./target/surefire-reports
     
+    - name: Upload Jacoco results
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck report
+        path: ./target/site/jacoco
 
   accept:
     name: Run Acceptance testing
@@ -113,8 +123,8 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: Depcheck report
-        path: ${{github.workspace}}/target/surefire-reports
-        # path: ${{github.workspace}}/target/site/cucumber-pretty.html 
+        path: ./target/surefire-reports
+        # path: ./target/site/cucumber-pretty.html 
 
   #publish:
   #  name: Publish artifact
