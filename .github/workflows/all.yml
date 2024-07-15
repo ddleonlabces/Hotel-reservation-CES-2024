@@ -76,17 +76,10 @@ jobs:
     #  with:
     #    name: compiled
     #    path: compiled.txt
-    - name: Upload Unit and Integration tests results
-      uses: actions/upload-artifact@master
-      with:
-        name: Depcheck report
-        path: ${{github.workspace}}/target/surefire-reports
+    - name: listado
+      run: ls -la
+
     
-    - name: Upload Jacoco results
-      uses: actions/upload-artifact@master
-      with:
-        name: Depcheck report
-        path: ${{github.workspace}}/target/site/jacoco
 
   accept:
     name: Run Acceptance testing
