@@ -82,13 +82,13 @@ jobs:
     - name: Upload Unit and Integration tests results
       uses: actions/upload-artifact@master
       with:
-        name: Depcheck report
+        name: Unit and Integration tests report
         path: ./target/surefire-reports
     
     - name: Upload Jacoco results
       uses: actions/upload-artifact@master
       with:
-        name: Depcheck report
+        name: Jacoco report
         path: ./target/site/jacoco
 
   accept:
@@ -122,7 +122,7 @@ jobs:
     - name: Upload Acceptance tests results
       uses: actions/upload-artifact@master
       with:
-        name: Depcheck report
+        name: Acceptance tests report
         path: ./target/surefire-reports
         # path: ./target/site/cucumber-pretty.html 
 
