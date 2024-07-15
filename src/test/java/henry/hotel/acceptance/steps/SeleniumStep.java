@@ -17,7 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-@ActiveProfiles("test")
+@ActiveProfiles("acceptance")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class SeleniumStep {
 
