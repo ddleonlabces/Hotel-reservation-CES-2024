@@ -139,7 +139,11 @@ jobs:
         cache: maven
 
     - name: Acceptance testing
-      run: mvn test -Dtest='**/*AcceptanceTests'
+      run: mvn clean package -Dtest='**/*AcceptanceTests'
+
+    - name: Upload compiled
+      run: ls -la
+      run: ls -la ./target
 
     - name: Upload Acceptance tests results
       uses: actions/upload-artifact@master
