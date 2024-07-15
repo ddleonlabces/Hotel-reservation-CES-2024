@@ -142,8 +142,9 @@ jobs:
       run: mvn clean package -Dtest='**/*AcceptanceTests'
 
     - name: Upload compiled
-      run: ls -la
-      run: ls -la ./target
+      run: |
+        ls -la
+        ls -la ./target
 
     - name: Upload Acceptance tests results
       uses: actions/upload-artifact@master
