@@ -107,6 +107,26 @@ jobs:
     # github.ref      = rama/etiqueta que desencadenó la ejecución del flujo
     if: ${{ github.base_ref == 'main' || github.ref == 'refs/heads/main' }}
 
+    # https://docs.github.com/en/actions/using-containerized-services/creating-postgresql-service-containers
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      pgservice:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        env:
+          POSTGRES_PASSWORD: ltnFnpp15qKzXF7UfCDH
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          # Maps tcp port 5432 on service container to the host
+          - 5432:5432
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -127,28 +147,3 @@ jobs:
         name: 04 - Acceptance tests report
         path: ./target/surefire-reports
 
-
-
-
-
-    # TODO Saca el compilado solo si es main y hay un tag
-    #- name: Upload compiled
-    #  uses: actions/upload-artifact@v3
-    #  with:
-    #    name: compiled
-    #    path: compiled.txt
-    # - name: listado
-    #  run: ls -la     
-  #publish:
-  #  name: Publish artifact
-  #  ...
-  # TODO publica el compilado solo si es main y hay un tag
-  # - name: Build with Maven
-  #  run: mvn -B package --file pom.xml
-
-        # run: mvn verify -Dtest='**/*UnitTests,**/*IntegrationTests'
-      # run: mvn verify -DincludedGroups="UnitTests,IntegrationTests" -DexcludedGroups=AcceptanceTests
-      # run: echo "mvn verify"
-      # run: echo "$GITHUB_BASE_REF"
-      # run: echo "${{ github.base_ref }}"
-      # run: env
