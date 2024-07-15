@@ -38,10 +38,10 @@ jobs:
         out: 'reports'
         # others: ''
 
-    - name: show files
-      run: ls -la ./reports
+    # - name: show files
+    #  run: ls -la ./reports
 
-    - name: Upload Test results
+    - name: Upload DepCheck results
       uses: actions/upload-artifact@master
       with:
         name: Depcheck report
@@ -63,11 +63,12 @@ jobs:
         cache: maven
 
     - name: SonarQube
+      run: mvn verify -Dtest='**/*UnitTests,**/*IntegrationTests'
       # run: mvn verify -DincludedGroups="UnitTests,IntegrationTests" -DexcludedGroups=AcceptanceTests
       # run: echo "mvn verify"
       # run: echo "$GITHUB_BASE_REF"
       # run: echo "${{ github.base_ref }}"
-      run: env
+      # run: env
     
     # TODO Saca el compilado solo si es main y hay un tag
     #- name: Upload compiled
@@ -75,6 +76,17 @@ jobs:
     #  with:
     #    name: compiled
     #    path: compiled.txt
+    - name: Upload Unit and Integration tests results
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck report
+        path: ${{github.workspace}}/target/surefire-reports
+    
+    - name: Upload Jacoco results
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck report
+        path: ${{github.workspace}}/target/site/jacoco
 
   accept:
     name: Run Acceptance testing
@@ -100,8 +112,16 @@ jobs:
         cache: maven
 
     - name: Acceptance testing
+      run: mvn test -Dtest='**/*AcceptanceTests'
       # run: mvn test -DincludedGroups=AcceptanceTests -DexcludedGroups="UnitTests,IntegrationTests"
-      run: echo "mvn test"
+      # run: echo "mvn test"
+
+    - name: Upload Acceptance tests results
+      uses: actions/upload-artifact@master
+      with:
+        name: Depcheck report
+        path: ${{github.workspace}}/target/surefire-reports
+        # path: ${{github.workspace}}/target/site/cucumber-pretty.html 
 
   #publish:
   #  name: Publish artifact
