@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import henry.hotel.entity.Reservation;
@@ -20,8 +19,7 @@ public class ReservationServiceImpl implements ReservationService {
 	private UserService userService;
 
 	private ReservationRep reservationRepository;
-	
-	@Autowired
+
 	public ReservationServiceImpl(UserService userService, ReservationRep reservationRepository) {
 		this.userService = userService;
 		this.reservationRepository = reservationRepository;

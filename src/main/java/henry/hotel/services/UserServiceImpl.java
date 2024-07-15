@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,20 +24,17 @@ public class UserServiceImpl implements UserService {
 	
 	// service pattern to manage transactionals  
 	//	and handel services for user between server and client
-
+	// bcrypt passwords
+	public static final BCryptPasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+	
 	private UserRep userRepository;
 	
 	private RoleRep roleRepository;
 
-	@Autowired
 	public UserServiceImpl(UserRep userRepository, RoleRep roleRepository) {
 		this.userRepository = userRepository;
 		this.roleRepository = roleRepository;
 	}
-
-	// bcrypt passwords
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
 
 	// check existing of user by email
 	@Override
@@ -55,7 +51,7 @@ public class UserServiceImpl implements UserService {
 		User user = new User();
 
 		// bcrypt password to save it hashing in database
-		user.setPassword(passwordEncoder.encode(currentUser.getPassword()));
+		user.setPassword(PASSWORD_ENCODER.encode(currentUser.getPassword()));
 		
 		user.setUsername(currentUser.getUsername());
 		user.setEmail(currentUser.getEmail());

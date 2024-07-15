@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,8 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import henry.hotel.services.ReservationService;
@@ -34,7 +31,6 @@ public class HotelReservationController {
 
 	private ReservationService reservationService;
 	
-	@Autowired
 	public HotelReservationController(UserService userService, ReservationService reservationService) {
 		this.userService = userService;
 		this.reservationService = reservationService;
@@ -48,7 +44,7 @@ public class HotelReservationController {
 	}
 
 	// home page
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String homePage() {
 
 		return "home-page";
@@ -143,7 +139,7 @@ public class HotelReservationController {
 	}
 	
 	// log out
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	@GetMapping("/logout")
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		
 		// handle logout for logged user  

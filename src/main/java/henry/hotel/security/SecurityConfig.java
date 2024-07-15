@@ -11,7 +11,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import henry.hotel.services.UserService;
+import henry.hotel.services.UserServiceImpl;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -52,14 +54,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	// beans
 	
 	// bcrypt bean definition
-	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
+		return UserServiceImpl.PASSWORD_ENCODER;
 	}
 
-	// authenticationProvider bean definition
-	@Bean
-	public DaoAuthenticationProvider authenticationProvider() {
+    // authenticationProvider bean definition
+    @Bean
+    DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
 		auth.setUserDetailsService(userService); 
 		auth.setPasswordEncoder(passwordEncoder());
