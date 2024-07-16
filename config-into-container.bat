@@ -1,0 +1,1 @@
+java -jar ./target/Hotel-Reservation-Postgres-0.0.1-SNAPSHOT.jar --spring.config.location=file:./config-into-container.properties
